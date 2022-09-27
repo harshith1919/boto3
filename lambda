@@ -10,3 +10,23 @@ def lambda_handler(event, context):
   
  https://h772siaq70.execute-api.ap-northeast-1.amazonaws.com/default/randomnumber
  
+ 
+#lambda function to list the buckets in s3
+ import json
+import boto3
+
+s3 = boto3.resource('s3')
+def lambda_handler(event, context):
+    # TODO implement
+    bucket_list = []
+    for bucket in s3.buckets.all():
+        bucket_list.append(bucket.name)
+    return {
+        
+        'statusCode': 200,
+        'body': bucket_list
+    }
+    
+https://dhm4qsaykj.execute-api.ap-northeast-1.amazonaws.com/init/
+
+ 
